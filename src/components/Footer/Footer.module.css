@@ -1,0 +1,32 @@
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 15px 20px;
+  border-top: 1px solid black;
+}
+
+.link {
+  color: black;
+  font-size: 16px;
+  line-height: 21px;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.link:focus-visible {
+  color: #0067a3;
+  text-decoration: underline;
+  outline: 2px ridge #0067a3;
+  outline-offset: 2px;
+}
+
+.link:active {
+  color: #0067a3;
+  text-decoration: none;
+}

@@ -1,0 +1,11 @@
+export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
+export const SIGN_UP_FAIL = 'SIGN_UP_FAIL';
+export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
+export const SIGN_IN_FAIL = 'SIGN_IN_FAIL';
+export const SIGN_OUT = 'SIGN_OUT';
+
+export const SET_MESSAGE = 'SET_MESSAGE';
+export const CLEAR_MESSAGE = 'CLEAR_MESSAGE';
+
+export const CREATE_REPORT_SUCCESS = 'CREATE_REPORT_SUCCESS';
+export const CREATE_REPORT_FAIL = 'CREATE_REPORT_FAIL';

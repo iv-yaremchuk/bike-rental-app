@@ -1,0 +1,55 @@
+a:focus-visible, button:focus-visible {
+
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  background-color: white;
+  border-bottom: 1px solid black;
+  padding: 0 20px;
+  text-decoration: none;
+}
+
+.link {
+  margin: 15px 0 11px;
+  transform: scale(1);
+  transition: transform 0.1s linear;
+  text-decoration: none;
+  padding: 0px 6px 4px 3px;
+}
+
+.link:hover {
+  transform: scale(0.95);
+  text-shadow: 0 1px 3px darkgray;
+  text-decoration: underline;
+}
+
+.link:focus-visible {
+  outline: 2px ridge #0067a3;
+  transform: scale(0.95);
+  text-shadow: 0 1px 3px darkgray;
+  text-decoration: underline;
+}
+
+.link:active {
+  transform: scale(0.9);
+  text-shadow: 0 3px 3px darkgray;
+  text-decoration: none;
+}
+
+.link.active {
+  transform: scale(0.9);
+  text-shadow: 0 3px 3px darkgray;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.title {
+  color: black;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1;
+  margin: 0;
+}

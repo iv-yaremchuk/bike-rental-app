@@ -1,0 +1,11 @@
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 60px 0;
+}
+.title {
+  font-size: 72px;
+  line-height: 1;
+  margin: 0 0 14px 0;
+}

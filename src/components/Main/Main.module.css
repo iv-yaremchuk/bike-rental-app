@@ -1,0 +1,19 @@
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1px 0.5fr;
+  column-gap: 20px;
+  padding: 0 20px;
+  overflow: auto;
+}
+
+@media (max-width: 1200px) {
+  .wrap {
+    grid-template-columns: 1fr 1px 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+}
