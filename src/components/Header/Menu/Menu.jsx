@@ -10,6 +10,8 @@ import { signOut } from '../../../redux/authAction';
 
 function Menu() {
   const [active, setActive] = useState(true);
+  const [linkAttr, setLinkAttr] = useState(true);
+
   const { isSignedIn } = useSelector((state) => state.authReducer);
 
   const dispatch = useDispatch();
@@ -90,12 +92,22 @@ function Menu() {
               <NavLink
                 onClick={() => {
                   setActive(!active);
+                  setLinkAttr(!linkAttr);
                 }}
                 onFocus={() => {
                   setActive(false);
                 }}
+                onBlur={() => {
+                  if (linkAttr) {
+                    setActive(active);
+                  } else {
+                    setActive(!active);
+                  }
+                }}
+                
                 className={setLinkActive}
                 to="/"
+                tabIndex={linkAttr ? -1 : 0}
               >
                 Форма
               </NavLink>
@@ -104,12 +116,21 @@ function Menu() {
               <NavLink
                 onClick={() => {
                   setActive(!active);
+                  setLinkAttr(!linkAttr);
                 }}
                 onFocus={() => {
                   setActive(false);
                 }}
+                onBlur={() => {
+                  if (linkAttr) {
+                    setActive(!active);
+                  } else {
+                    setActive(active);
+                  }
+                }}
                 className={setLinkActive}
                 to="/theftTable"
+                tabIndex={!linkAttr ? -1 : 0}
               >
                 Таблица
               </NavLink>
@@ -118,7 +139,11 @@ function Menu() {
               <a
                 onClick={() => {
                   setActive(!active);
+                  setLinkAttr(!linkAttr);
                   signout();
+                }}
+                onFocus={() => {
+                  setActive(false);
                 }}
                 onBlur={() => {
                   setActive(!active);
@@ -136,12 +161,21 @@ function Menu() {
               <NavLink
                 onClick={() => {
                   setActive(!active);
+                  setLinkAttr(!linkAttr);
                 }}
                 onFocus={() => {
                   setActive(false);
                 }}
+                onBlur={() => {
+                  if (linkAttr) {
+                    setActive(active);
+                  } else {
+                    setActive(!active);
+                  }
+                }}
                 className={setLinkActive}
                 to="/signIn"
+                tabIndex={linkAttr ? -1 : 0}
               >
                 Войти
               </NavLink>
@@ -150,12 +184,14 @@ function Menu() {
               <NavLink
                 onClick={() => {
                   setActive(!active);
+                  setLinkAttr(!linkAttr);
                 }}
                 onBlur={() => {
                   setActive(!active);
                 }}
                 className={setLinkActive}
                 to="/signUp"
+                tabIndex={!linkAttr ? -1 : 0}
               >
                 Зарегистрироваться
               </NavLink>

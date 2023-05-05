@@ -43,7 +43,7 @@ function SignInForm() {
   };
 
   return (
-    <>
+    <div className={styled.wrap}>
       <div className={styled.text}>
         {message ? (
           <h2 className={styled.title + ' ' + styled.error}>{message}</h2>
@@ -106,7 +106,7 @@ function SignInForm() {
           Отправить
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

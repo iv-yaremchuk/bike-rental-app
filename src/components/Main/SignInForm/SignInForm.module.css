@@ -1,3 +1,11 @@
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1px 0.5fr;
+  column-gap: 20px;
+  padding: 0 20px;
+  overflow: auto;
+}
+
 .text {
   display: flex;
   flex-direction: column;
@@ -119,6 +127,10 @@
 }
 
 @media (max-width: 1200px) {
+  .wrap {
+    grid-template-columns: 1fr 1px 1fr;
+  }
+
   .title {
     font-size: 48px;
   }
@@ -129,6 +141,10 @@
 }
 
 @media (max-width: 760px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+
   .line {
     width: calc(100% + 40px);
     height: 1px;

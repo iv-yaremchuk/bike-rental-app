@@ -18,7 +18,7 @@ function TheftReportForm() {
     dispatch(
       createReport(
         data.licenseNumber,
-        data.ownerFullName,
+        data.ownerFullName.split(' ').map(elem => elem[0].toUpperCase() + elem.slice(1).toLowerCase()).join(' '),
         data.type,
         data.clientId,
         data.color,
@@ -33,7 +33,7 @@ function TheftReportForm() {
   const { isReported } = useSelector((state) => state.reportReducer);
 
   return (
-    <>
+    <div className={styled.wrap}>
       { isReported ? (
         <div className={styled.text}>
           <h3 className={styled.title + ' ' + styled.success}>Ваш запрос успешно отправлен!</h3>
@@ -84,7 +84,7 @@ function TheftReportForm() {
                 message: '*Минимум 4 буквы',
               },
               pattern: {
-                value: /^[а-яА-ЯёЁa-zA-Z]+$/,
+                value: /^[а-яА-Яё Ёa-zA-Z]+$/,
                 message: '*Недопустимый формат',
               },
             })}
@@ -180,7 +180,7 @@ function TheftReportForm() {
           Отправить
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

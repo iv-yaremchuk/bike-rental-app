@@ -51,7 +51,7 @@ function SignUpForm() {
   }
 
   return (
-    <>
+    <div className={styled.wrap}>
       <div className={styled.text}>
         {message ? (
           <h3 className={styled.title + ' ' + styled.error}>{message}</h3>
@@ -196,7 +196,7 @@ function SignUpForm() {
       ) : (
         <h2 className={styled.title}>Регистрация завершенна!</h2>
       )}
-    </>
+    </div>
   );
 }
 

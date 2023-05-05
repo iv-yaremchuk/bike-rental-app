@@ -18,13 +18,9 @@ export const createReport =
       date,
       description
     ).then(
-      (response) => {
+      () => {
         dispatch({
           type: CREATE_REPORT_SUCCESS,
-        });
-        dispatch({
-          type: SET_MESSAGE,
-          payload: response.data.message,
         });
         return Promise.resolve();
       },
