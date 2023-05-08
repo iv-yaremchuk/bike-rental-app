@@ -17,7 +17,7 @@ function SignInForm() {
     formState: { errors },
     handleSubmit,
     reset,
-  } = useForm({ mode: 'onBlur' });
+  } = useForm({ mode: 'onChange' });
 
   const { message } = useSelector((state) => state.messageReducer);
   const { isSignedIn } = useSelector((state) => state.authReducer);
@@ -97,6 +97,7 @@ function SignInForm() {
                 ? styled.form__input + ' ' + styled.invalid
                 : styled.form__input
             }
+            type='password'
           />
           <span className={styled.form__error}>
             {errors?.password?.message || ''}

@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { signOut } from '../../../redux/authAction';
 
-function Menu() {
+function Menu(props) {
   const [active, setActive] = useState(true);
-  const [linkAttr, setLinkAttr] = useState(true);
+  const { logoAttr, setLogoAttr, linkAttr, setLinkAttr } = props;
 
   const { isSignedIn } = useSelector((state) => state.authReducer);
 
@@ -30,7 +30,7 @@ function Menu() {
       <div className={styled.menu__wrap}>
         <button
           onClick={() => {
-            setActive(!active);
+            setActive(!active)
           }}
           className={styled.menu__btn}
         >
@@ -92,6 +92,7 @@ function Menu() {
               <NavLink
                 onClick={() => {
                   setActive(!active);
+                  setLogoAttr(true);
                   setLinkAttr(!linkAttr);
                 }}
                 onFocus={() => {
@@ -104,7 +105,6 @@ function Menu() {
                     setActive(!active);
                   }
                 }}
-                
                 className={setLinkActive}
                 to="/"
                 tabIndex={linkAttr ? -1 : 0}
@@ -116,6 +116,7 @@ function Menu() {
               <NavLink
                 onClick={() => {
                   setActive(!active);
+                  setLogoAttr(false);
                   setLinkAttr(!linkAttr);
                 }}
                 onFocus={() => {
@@ -139,6 +140,7 @@ function Menu() {
               <a
                 onClick={() => {
                   setActive(!active);
+                  setLogoAttr(false);
                   setLinkAttr(!linkAttr);
                   signout();
                 }}
@@ -160,22 +162,28 @@ function Menu() {
             <li className={styled.dropdown_menu__item}>
               <NavLink
                 onClick={() => {
-                  setActive(!active);
-                  setLinkAttr(!linkAttr);
+                  setActive(true);
+                  setLogoAttr(false);
+                  setLinkAttr(false);
                 }}
                 onFocus={() => {
                   setActive(false);
                 }}
-                onBlur={() => {
-                  if (linkAttr) {
-                    setActive(active);
+                onBlur={(e) => {
+                  e.preventDefault();
+                  if (linkAttr === true || logoAttr === true) {
+                    setActive(true);
                   } else {
-                    setActive(!active);
+                    setActive(false);
+                    setTimeout(() => {
+                      setActive(true)
+                    }, 1)
                   }
+
                 }}
                 className={setLinkActive}
                 to="/signIn"
-                tabIndex={linkAttr ? -1 : 0}
+                tabIndex={linkAttr || logoAttr === true ? 0 : -1}
               >
                 Войти
               </NavLink>
@@ -183,15 +191,19 @@ function Menu() {
             <li className={styled.dropdown_menu__item}>
               <NavLink
                 onClick={() => {
-                  setActive(!active);
+                  setActive(true);
+                  setLogoAttr(false);
                   setLinkAttr(!linkAttr);
                 }}
+                onFocus={() => {
+                  setActive(false);
+                }}
                 onBlur={() => {
-                  setActive(!active);
+                  linkAttr === false && setActive(true);
                 }}
                 className={setLinkActive}
                 to="/signUp"
-                tabIndex={!linkAttr ? -1 : 0}
+                tabIndex={!linkAttr ? 0 : -1}
               >
                 Зарегистрироваться
               </NavLink>

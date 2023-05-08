@@ -81,6 +81,14 @@
   border: 1px solid black;
 }
 
+.form__input[type='date'] {
+  padding-left: 3px;
+}
+
+.form__input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
 .form__input:focus-visible {
   outline: 2px ridge #0067a3;
   outline-offset: 2px;
